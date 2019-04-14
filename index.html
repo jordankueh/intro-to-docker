@@ -476,7 +476,8 @@ class: middle, center
 # Containers
 
 ---
-# Learn just enough in 5 Lessons
+# Outcomes
+## Learn just enough in 5 Lessons
 
 By the end of the exercises, you should know more about
   - Running containers
@@ -813,6 +814,20 @@ class: center, middle
 # Images
 
 ---
+# Outcomes
+
+At the end of this module, we hope you:
+
+- Understand how Docker Images are built in layers
+- know how to build an image from Dockerfiles
+- know how to tag an image
+- know about build caching
+- know how to publish an image to Docker Hub
+- know how to pull an image from Docker Hub
+- can build, push and pull Docker images.
+- know where to go to learn more
+
+---
 # What's in an image?
 
 --
@@ -861,7 +876,6 @@ debian       latest       ddf73f48a05d   2 weeks ago   123 MB
 nginx        latest       ba6bed934df2   2 weeks ago   181.4 MB
 ruby         2.3-alpine   2467a614f30b   2 weeks ago   125.8 MB
 ...
-ubuntu       14.04        f2d8ce9fa988   2 weeks ago   187.9 MB
 ubuntu       16.04        45bc58500fa3   3 weeks ago   126.9 MB
 ubuntu       latest       45bc58500fa3   3 weeks ago   126.9 MB
 ubuntu       <none>       45bc58500fa3   3 weeks ago   126.9 MB
@@ -1412,16 +1426,17 @@ class: middle, center
 <img src="media/compose.png" width="50%"/>
 ]
 ---
-# Overview
+# Outcomes
+
+At the end of this module, we hope you:
+
 <br>
 .big[
-* What is Docker Compose?
-* A simple app
-* Processes and networking
-* Building from local images
-* Adding and running a client
-* Sharing a volume between containers
-* A mixed platform app
+- Understand what Docker Compose is
+- know how to deploy a simple multi-container app with Docker Compose
+- know how container networking works with Docker Compose
+- know how to share a volume between containers
+- know where to go to learn more
 ]
 ---
 # What is Docker Compose?
@@ -1448,7 +1463,7 @@ From the <a href="https://docs.docker.com/compose/overview/">Docker Website</a>:
 Given YAML config file:
 
 ```
-version: '2'
+version: '3'
 
 services:
 
@@ -1525,7 +1540,7 @@ $ `docker-compose down`
 # Try it: get compose to build your images
 
 ```
-version: '2'
+version: '3'
 
 services:
 
@@ -1552,7 +1567,7 @@ $ `docker-compose up`
 # Try it: add a "client" container
 
 ```
-version: '2'
+version: '3'
 
 services:
   app: ...
@@ -1593,7 +1608,7 @@ root@ebb0d01e63b0:/# `curl -i proxy`
 # Try it: sharing a volume
 
 ```
-version: '2'
+version: '3'
 
 volumes:
   shared: {}
@@ -1607,7 +1622,7 @@ services:
     command: sh -c "while true; do date; sleep 1; done > /out/dates"
 
   consumer:
-    image: ubuntu:14.04
+    image: ubuntu:16.04
     depends_on:
       - producer
     volumes:
